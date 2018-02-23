@@ -56,7 +56,7 @@ var MangaFox = {
                         if (curChapURL.substr(curChapURL.length - 2, 2) === "//") {
                             curChapURL = curChapURL.substr(0, curChapURL.length - 1);
                         }
-                        res[res.length] = [tit.trim(), "http:" + curChapURL + "1.html"];
+                        res[res.length] = [tit.trim(), "http:" + curChapURL + "01.html"];
                     }
                 });
                 callback(res, obj);
