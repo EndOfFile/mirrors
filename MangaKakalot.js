@@ -51,11 +51,11 @@ var MangaKakalot = {
                 // console.log(div);
                 var res = [];
                 var chapters = $("a", $(".chapter-list", div)[0]);
-                if(chapters.lenth == 0) {
+                if (chapters.lenth == 0) {
                     console.log("Found no chapters!");
                 }
                 // console.log(chapters.length);
-                for(let index = 0; index < chapters.length; ++index) {
+                for (let index = 0; index < chapters.length; ++index) {
                     // console.log(chapters[index].innerText);
                     // console.log(chapters[index].href);
                     res.push([chapters[index].innerText, chapters[index].href])
@@ -63,33 +63,6 @@ var MangaKakalot = {
                 callback(res, obj);
             }
         });
-        // $.ajax({
-        //     url: urlManga,
-        //     beforeSend: function(xhr) {
-        //         xhr.setRequestHeader("Cache-Control", "no-cache");
-        //         xhr.setRequestHeader("Pragma", "no-cache");
-        //     },
-        //     success: function(objResponse) {
-        //         var div = document.createElement("div");
-        //         objResponse = objResponse.replace(/<img\b[^>]*>/ig, ''); //avoid loading cover image
-        //         div.innerHTML = objResponse;
-        //         var res = [];
-        //         var mangaName = $('#title h2', div).text().substr(5, $('#title h2', div).text().length - 18);
-        //         $("ul.chlist h3, ul.chlist h4", div).each(function(index) {
-        //             if ($('a', $(this)).attr("href").indexOf("/manga/") !== -1) {
-        //                 var vol = $(this).parents('ul.chlist').prev('div.slide').children('h3').contents(':not(span)').text().trim().substr(7);
-        //                 var tit = 'Vol ' + vol + ' Ch ' + $('a', $(this)).text().substr(mangaName.length + 1) + ': ' + $('span.title', $(this)).text();
-        //                 var url = $('a', $(this)).attr("href");
-        //                 var curChapURL = url.substr(0, url.lastIndexOf("/") + 1);
-        //                 if (curChapURL.substr(curChapURL.length - 2, 2) === "//") {
-        //                     curChapURL = curChapURL.substr(0, curChapURL.length - 1);
-        //                 }
-        //                 res[res.length] = [tit.trim(), "http:" + curChapURL + "1.html"];
-        //             }
-        //         });
-        //         callback(res, obj);
-        //     }
-        // });
     },
     getInformationsFromCurrentPage: function(doc, curUrl, callback) {
         "use strict";
@@ -102,7 +75,6 @@ var MangaKakalot = {
         console.log(curUrl);
         var currentMangaUrl = curUrl.substr(0, curUrl.lastIndexOf("/") + 1).replace("chapter", "manga");
         console.log(currentMangaUrl)
-
         callback({
             "name": name,
             "currentChapter": currentChapter,
