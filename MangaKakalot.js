@@ -67,14 +67,14 @@ var MangaKakalot = {
     getInformationsFromCurrentPage: function(doc, curUrl, callback) {
         "use strict";
         console.log("getInformationsFromCurrentPage");
-        var str = $(".info-top-chapter > h2").text().split("chapter");
+        var str = $(".info-top-chapter > h2").text().split(/chapter/i);
         var name = str[0].trim();
         var currentChapter = str[1].trim();
-        console.log(name);
-        console.log(currentChapter);
-        console.log(curUrl);
+        console.log("Name: " + name);
+        console.log("#Chapter: " + currentChapter);
+        console.log("URL: " + curUrl);
         var currentMangaUrl = curUrl.substr(0, curUrl.lastIndexOf("/") + 1).replace("chapter", "manga");
-        console.log(currentMangaUrl)
+        console.log("MangaURL: " + currentMangaUrl)
         callback({
             "name": name,
             "currentChapter": currentChapter,
